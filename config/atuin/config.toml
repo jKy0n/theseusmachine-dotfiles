@@ -36,6 +36,7 @@ db_path = "/mnt/cache/atuin/history.db"
 
 ## address of the sync server
 # sync_address = "https://api.atuin.sh"
+sync_address = "http://100.100.10.10:8888"
 
 ## how often to sync history. note that this is only triggered when a command
 ## is ran, so sync intervals may well be longer
@@ -122,6 +123,16 @@ db_path = "/mnt/cache/atuin/history.db"
 #   "^secret-cmd",
 #   "^innocuous-cmd .*--secret=.+",
 # ]
+
+history_filter = [
+  "^ ",
+  "mysql .*-p[^ ]",
+  "Authorization: Bearer ",
+  "://[^/@]*:[^/@]*@",
+  "PASSWORD=",
+  "_PASS=",
+  "-u [^ ]*:[^ ]*",
+]
 
 ## prevent commands run with cwd matching any of these regexes from being written
 ## to history. Note that these regular expressions are unanchored, i.e. if they don't

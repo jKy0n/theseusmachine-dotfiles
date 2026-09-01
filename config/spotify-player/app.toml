@@ -39,6 +39,6 @@ audio_cache = true
 autoplay = false
 bitrate = 320
 device_type = "speaker"
-name = "spotify-player"
+name = "theseusmachine"
 normalization = false
 volume = 60

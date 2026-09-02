@@ -180,6 +180,13 @@ window-rule {  // muPDF - Quick PDF reader   <<<---  APP-ID INDEFINIDO
 
 // N  ------------------------------------------------------------
 
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
 // O  ------------------------------------------------------------
 
 window-rule {  // OBS - Open Broadcast Software
@@ -305,3 +312,23 @@ window-rule {  // xconfig - X Configuration Manager for kernel
 }
 
 // Y // Z  ------------------------------------------------------------
+
+
+
+
+
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+    // blur false
+  }
+}
+
+layer-rule {
+    match namespace="noctalia-window-switcher"
+    background-effect {
+        blur true
+        xray false
+    }
+}

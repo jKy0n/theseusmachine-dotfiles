@@ -27,3 +27,8 @@ cursor {
     hide-when-typing
     hide-after-inactive-ms 1000
 }
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}

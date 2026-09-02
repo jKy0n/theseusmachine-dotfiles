@@ -144,9 +144,11 @@
     "cpu": {
       "justify": "center",
       "format": "<span size='large'></span>\n{usage}%",
+      ""
       // "tooltip-format": "CPU\nUso: {usage}%\nFrequência média: {avg_frequency}GHz"
     },
     "temperature": {
+      "critical-threshold": 75,
       "justify": "center",
       "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
       "format": "{temperatureC}°C",

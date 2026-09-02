@@ -135,6 +135,10 @@
     color: @crust;
 }
 
+#temperature.critical {
+    background-color: @red;
+}
+
 /* -- Workspaces: o container é tratado no grupo acima (é um módulo
    igual aos outros); os BOTÕES de dentro dele são outra "família"
    (comportamento de clique/hover), por isso ficam à parte. */

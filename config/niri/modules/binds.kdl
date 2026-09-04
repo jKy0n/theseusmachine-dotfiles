@@ -34,12 +34,18 @@ binds {
     Mod+W hotkey-overlay-title="Open Firefox" { spawn "firefox"; }
 
     //  ---  Walker - Launcher  ---
-    Mod+P hotkey-overlay-title="Run an Application: walker" { spawn-sh "nc -U \"$XDG_RUNTIME_DIR/walker/walker.sock\""; }
-    Mod+O hotkey-overlay-title="Emoji selector" { spawn "walker" "--provider" "symbols"; }
+    Mod+P { spawn-sh "noctalia msg panel-toggle launcher"; }
+
+    //  ---  Walker - Launcher  ---
+    // Mod+P hotkey-overlay-title="Run an Application: walker" { spawn-sh "nc -U \"$XDG_RUNTIME_DIR/walker/walker.sock\""; }
+    // Mod+O hotkey-overlay-title="Emoji selector" { spawn "walker" "--provider" "symbols"; }
 
     //  ---  Manipulação de Workspace  ---
-    Mod+F2 hotkey-overlay-title="Rename current workspace" { spawn-sh "~/ShellScript/niri/rename-workspace.sh"; }
-    Mod+Shift+F2 hotkey-overlay-title="Unset workspace name" { spawn-sh "niri msg action unset-workspace-name"; }
+    // Mod+F2 hotkey-overlay-title="Rename current workspace" { spawn-sh "~/ShellScript/niri/rename-workspace.sh"; }
+    // Mod+Shift+F2 hotkey-overlay-title="Unset workspace name" { spawn-sh "niri msg action unset-workspace-name"; }
+
+    //  ---  Manipulação de Janelas ---
+    Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
 
     //  -----  Multimedia Keys -----
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
@@ -60,10 +66,10 @@ binds {
     XF86AudioNext allow-when-locked=true { spawn-sh "playerctl --player=spotify_player,spotify next"; }
 
     // --- Screenshot ---
-    Print hotkey-overlay-title="Take a screenshot and open in Satty" { spawn-sh "grim -t ppm - | satty --filename - --copy-command wl-copy --actions-on-enter=\"save-to-clipboard,exit\" --output-filename \"$HOME/Pictures/Screenshots/$(date +%Y%m%d-%H%M%S).png\""; }
-    Mod+Shift+Print hotkey-overlay-title="Select area, take a screenshot and copy to clipboard" { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy"; }
-    Mod+Control+Print hotkey-overlay-title="Select area, take a screenshot and open in Satty" { spawn-sh "grim -t ppm -g \"$(slurp -d)\" - | satty --filename - --copy-command wl-copy --actions-on-enter=\"save-to-clipboard,exit\" --output-filename \"$HOME/Pictures/Screenshots/$(date +%Y%m%d-%H%M%S).png\""; }
-    // Mod+Alt+Print hotkey-overlay-title="Take a window screenshot" { screenshot-window; }
+    // Print hotkey-overlay-title="Take a screenshot and open in Satty" { spawn-sh "grim -t ppm - | satty --filename - --copy-command wl-copy --actions-on-enter=\"save-to-clipboard,exit\" --output-filename \"$HOME/Pictures/Screenshots/$(date +%Y%m%d-%H%M%S).png\""; }
+    // Mod+Shift+Print hotkey-overlay-title="Select area, take a screenshot and copy to clipboard" { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy"; }
+    // Mod+Control+Print hotkey-overlay-title="Select area, take a screenshot and open in Satty" { spawn-sh "grim -t ppm -g \"$(slurp -d)\" - | satty --filename - --copy-command wl-copy --actions-on-enter=\"save-to-clipboard,exit\" --output-filename \"$HOME/Pictures/Screenshots/$(date +%Y%m%d-%H%M%S).png\""; }
+    Print hotkey-overlay-title="Take a window screenshot" { spawn-sh "noctalia msg screenshot-region"; }
 
     // Intercepta Ctrl + Scroll no Wayland e injeta a troca de abas no Firefox/Apps - Necessita de wtype
     Ctrl+WheelScrollDown { spawn "wtype" "-M" "ctrl" "-k" "Page_Down"; }

@@ -11,13 +11,11 @@ playback_metadata_fields = [
 ]
 app_refresh_duration_in_ms = 32
 border_type = "Rounded"
-client_port = 8080
 cover_img_length = 48
 cover_img_pixels = 16
 cover_img_rendering_method = "None"
 cover_img_scale = 2
 cover_img_width = 20
-default_device = "spotify-player"
 enable_audio_visualization = true
 enable_cover_image_cache = true
 enable_media_control = true

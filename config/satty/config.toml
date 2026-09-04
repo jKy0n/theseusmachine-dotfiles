@@ -31,10 +31,10 @@ disable-notifications = false
 actions-on-right-click = ["save-to-clipboard"]
 # Actions to trigger on Enter key (order is important)
 # [possible values: save-to-clipboard, save-to-file, exit]
-actions-on-enter = ["save-to-clipboard", "save-to-file"]
+actions-on-enter = ["save-to-clipboard", "exit"]
 # Actions to trigger on Escape key (order is important)
 # [possible values: save-to-clipboard, save-to-file, exit]
-actions-on-escape = ["save-to-clipboard", "exit"]
+actions-on-escape = ["exit"]
 # Action to perform when the Enter key is pressed [possible values: save-to-clipboard, save-to-file]
 # Deprecated: use actions-on-enter instead
 action-on-enter = "save-to-clipboard"

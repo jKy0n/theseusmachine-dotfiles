@@ -132,6 +132,9 @@ history_filter = [
   "PASSWORD=",
   "_PASS=",
   "-u [^ ]*:[^ ]*",
+  # bloqueia lixo de mouse-tracking do terminal (ex: vazamento de escape
+  # sequences SGR do spicetify/inquirer) sendo salvo como comando
+  "[0-9]+;[0-9]+;[0-9]+M[0-9]+;[0-9]+;[0-9]+M[0-9]+;[0-9]+;[0-9]+M",
 ]
 
 ## prevent commands run with cwd matching any of these regexes from being written

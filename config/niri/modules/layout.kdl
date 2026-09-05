@@ -13,7 +13,7 @@ layout {
 
     focus-ring {
         width 3
-        active-color "#8caaee"     // Catppuccin Frappé — Blue
+        active-color "#c6a0f6"     // Catppuccin Frappé — Mauve
         inactive-color "#626880"   // Catppuccin Frappé — Surface2
     }
 

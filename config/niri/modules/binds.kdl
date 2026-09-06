@@ -24,8 +24,8 @@ binds {
     // Mod+Shift+Return hotkey-overlay-title="Open a floating terminal (no tmux)" { spawn "env" "NO_TMUX=1" "alacritty" "--class" "FloatingTerminal"; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Control+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "NO_TMUX=1 kitty"; }
-    Mod+Shift+Return hotkey-overlay-title="Open a floating terminal (no tmux)" { spawn "env" "NO_TMUX=1" "kitty" "--class" "FloatingTerminal"; }
+    Mod+Control+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "NO_MUX=1 kitty"; }
+    Mod+Shift+Return hotkey-overlay-title="Open a floating terminal (no mux)" { spawn "env" "NO_MUX=1" "kitty" "--class" "FloatingTerminal"; }
 
     //  ---  Apps do dia-a-dia  ---
     Mod+C hotkey-overlay-title="Open Calculator" { spawn "gnome-calculator"; }

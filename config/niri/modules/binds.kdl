@@ -12,40 +12,40 @@
 
 
 binds {
-    //  ---  Help menu  ---
+    //  -----  Help menu  -----
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // ---  Quit  ---
+    // -----  Quit  -----
     Mod+Shift+E { quit; }
-
-    //  ---  Terminal  ---
-    // Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    // Mod+Control+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn-sh "NO_TMUX=1 alacritty"; }
-    // Mod+Shift+Return hotkey-overlay-title="Open a floating terminal (no tmux)" { spawn "env" "NO_TMUX=1" "alacritty" "--class" "FloatingTerminal"; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Control+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "NO_MUX=1 kitty"; }
     Mod+Shift+Return hotkey-overlay-title="Open a floating terminal (no mux)" { spawn "env" "NO_MUX=1" "kitty" "--class" "FloatingTerminal"; }
 
-    //  ---  Apps do dia-a-dia  ---
+    //  -----  Apps do dia-a-dia  -----
     Mod+C hotkey-overlay-title="Open Calculator" { spawn "gnome-calculator"; }
     Mod+E hotkey-overlay-title="Open Dolphin" { spawn "dolphin"; }
     Mod+V hotkey-overlay-title="Open VS Code" { spawn "code"; }
     Mod+W hotkey-overlay-title="Open Firefox" { spawn "firefox"; }
 
-    //  ---  Walker - Launcher  ---
+    //  -----  Noctalia Launcher  -----
     Mod+P { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+O hotkey-overlay-title="Emoji picker" { spawn-sh "noctalia msg panel-toggle launcher /emo"; }
 
-    //  ---  Walker - Launcher  ---
+    //  -----  Walker - Launcher  -----
     // Mod+P hotkey-overlay-title="Run an Application: walker" { spawn-sh "nc -U \"$XDG_RUNTIME_DIR/walker/walker.sock\""; }
     // Mod+O hotkey-overlay-title="Emoji selector" { spawn "walker" "--provider" "symbols"; }
 
-    //  ---  Manipulação de Workspace  ---
+    //  -----  Manipulação de Workspace  -----
     // Mod+F2 hotkey-overlay-title="Rename current workspace" { spawn-sh "~/ShellScript/niri/rename-workspace.sh"; }
     // Mod+Shift+F2 hotkey-overlay-title="Unset workspace name" { spawn-sh "niri msg action unset-workspace-name"; }
 
-    //  ---  Manipulação de Janelas ---
-    Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
+    //  -----  Manipulação de Janelas -----
+    // Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
+
+    //  -----  Niri  -----
+     Mod+Shift+Semicolon { spawn-sh "noctalia msg settings-toggle"; }
+     // Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
 
     //  -----  Multimedia Keys -----
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }

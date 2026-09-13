@@ -1,42 +1,31 @@
-[accessibility]
-high_contrast = false
-ui_scale = 1.0
-
-[audio]
-enable_overdrive = false
-enable_sounds = true
-notification_sound = ""
-sound_volume = 0.669999985024333
-volume_change_sound = ""
+config_version = 13
 
 [backdrop]
-blur_intensity = 0.5
 enabled = true
-tint_intensity = 0.29999999999999999
 
 [bar.main]
-auto_hide = false
-background_opacity = 1.0
-capsule = false
-center = [ "clock" ]
-end = [ "bar", "clipboard", "status", "group:g1", "group:g2", "spacer_power", "session" ]
-font_scale = 1.0
+center = [ "group:g2", "group:g1", "spacer_media", "group:g4", "spacer_media", "portage" ]
 margin_edge = 5
 margin_ends = 10
 padding = 20
 position = "right"
-radius = 12
-reserve_space = true
-scale = 1.0
-shadow = true
-start = [ "workspaces", "spacer_media", "media" ]
 thickness = 40
-widget_spacing = 6
 
     [bar.main.monitor.HDMI-A-1]
-    center = [ "clock" ]
-    end = [ "clipboard", "status", "group:g1", "group:g2", "spacer_power", "session" ]
+    center = [ "group:g1", "spacer_media", "clock" ]
+    end = [ "media", "spacer_media", "session" ]
     position = "top"
+    start = [ "workspaces" ]
+
+        [[bar.main.monitor.HDMI-A-1.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "cat_4", "cat_2" ]
+        opacity = 0.0
+        padding = 8.0
 
     [[bar.main.capsule_group]]
     accordion = false
@@ -44,7 +33,7 @@ widget_spacing = 6
     enabled = true
     fill = "surface_variant"
     id = "g1"
-    members = [ "tray", "network" ]
+    members = [ "tray" ]
     opacity = 1.0
     padding = 6.0
 
@@ -54,7 +43,27 @@ widget_spacing = 6
     enabled = true
     fill = "surface_variant"
     id = "g2"
-    members = [ "caffeine", "volume", "notifications" ]
+    members = [ "status", "bar", "clipboard", "caffeine", "volume", "notifications", "network", "status_2" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.main.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g3"
+    members = [ "cpu", "temp", "sysmon", "gpu-vram", "gpu-temp", "ram", "swap", "summary" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.main.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g4"
+    members = [ "clock", "weather" ]
     opacity = 1.0
     padding = 6.0
 
@@ -64,22 +73,14 @@ sync_all_monitors = true
 
 [calendar]
 enabled = true
-refresh_minutes = 15
 
     [calendar.account.personal]
     name = "agenda"
     type = "google"
 
 [control_center]
-hidden_tabs = [ "power" ]
 sidebar = "full"
 sidebar_section = "full"
-
-    [control_center.calendar]
-    event_date_format = "%A %e %B"
-    event_time_format = "%H:%M"
-    show_events_card = true
-    show_week_numbers = false
 
     [[control_center.shortcuts]]
     type = "nightlight"
@@ -91,42 +92,16 @@ sidebar_section = "full"
     type = "notification"
 
 [desktop_widgets]
-enabled = false
+enabled = true
+schema_version = 2
+widget_order = []
 
-[dock]
-active_monitor_only = false
-active_opacity = 1.0
-active_scale = 1.0
-auto_hide = false
-background_opacity = 0.88
-cross_axis_padding = 8
-enabled = false
-icon_size = 48
-inactive_opacity = 0.84999999999999998
-inactive_scale = 0.84999999999999998
-item_spacing = 6
-launcher_icon = "grid-dots"
-launcher_position = "none"
-layer = "top"
-magnification = true
-magnification_scale = 1.45
-main_axis_padding = 16
-margin_edge = 8
-margin_ends = 0
-pinned = []
-position = "bottom"
-radius = 16
-radius_bottom_left = 16
-radius_bottom_right = 16
-radius_top_left = 16
-radius_top_right = 16
-reserve_space = true
-shadow = true
-show_dots = false
-show_instance_count = true
-show_running = true
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
 
-[hooks]
+    [desktop_widgets.widget]
 
 [idle]
 behavior_order = [ "lock", "screen-off", "idle-behavior" ]
@@ -148,27 +123,9 @@ pre_action_fade_seconds = 10
     enabled = true
     timeout = 600.0
 
-[keybinds]
-cancel = [ "escape" ]
-delete = [ "del" ]
-down = [ "down" ]
-left = [ "left" ]
-right = [ "right" ]
-tab_next = [ "tab" ]
-tab_previous = [ "shift+iso_left_tab" ]
-up = [ "up" ]
-validate = [ "return", "kp_enter", "space" ]
-
-[location]
-address = ""
-auto_locate = false
-latitude = -24.0074816688144
-longitude = -46.402852281016102
-
 [lockscreen]
 blur_intensity = 0.32999999262392521
 blurred_desktop = true
-enabled = true
 tint_intensity = 0.24999999441206455
 
 [lockscreen_widgets]
@@ -392,46 +349,20 @@ widget_order = [
         background_opacity = 0.67000000000000004
         format = "{:%A, %d %B %Y}"
 
-[nightlight]
-enabled = true
-force = false
-temperature_day = 6500
-temperature_night = 4500
-
 [notification]
-background_opacity = 0.96999999999999997
-enable_daemon = true
-layer = "top"
-offset_x = 20
-offset_y = 8
 position = "top_center"
-scale = 1.0
-show_actions = true
-show_app_name = true
 
-[osd]
-background_opacity = 0.96999999999999997
-offset_x = 20
-offset_y = 8
-orientation = "horizontal"
-position = "top_right"
-position_vertical = "top_center"
-scale = 1.0
+[plugin_settings."aristides/udiskie"]
+manager_open_near_click = true
 
-    [osd.kinds]
-    bluetooth = true
-    brightness = true
-    caffeine = true
-    dnd = true
-    keyboard_layout = true
-    lock_keys = true
-    nightlight = true
-    power_profile = true
-    privacy = true
-    volume = true
-    volume_input = true
-    volume_output = true
-    wifi = true
+[plugin_settings."decksters-lab/palette-creator"]
+creator_open_near_click = true
+creator_position = "auto"
+
+[plugin_settings."gustav0ar/drive-health"]
+drives_position = "auto"
+full_smart_refresh_minutes = 60
+system_collector_enabled = true
 
 [plugin_settings."icefish/phone-connect"]
 battery_display = "percent"
@@ -440,102 +371,89 @@ details_placement = "floating"
 [plugin_settings."icefish/phone-operate"]
 battery_display = "hidden"
 
+[plugin_settings."jrohland/claudecode"]
+popout_placement = "floating"
+refresh_interval = 5
+
+[plugin_settings."kenn/keybind-cheatsheet"]
+compositor = "niri"
+niri_config = "~/.config/niri/modules/binds.kdl"
+show_undescribed = false
+
+[plugin_settings."nightwatch75/file-search"]
+panel_placement = "floating"
+
 [plugin_settings."noctalia/timer"]
 panel_placement = "floating"
 
+[plugin_settings."nomadcxx/gamer-mode"]
+main_open_near_click = true
+
+[plugin_settings."weinguyen/procmon"]
+panel_position = "auto"
+
 [plugins]
-enabled = [ "icefish/phone-operate", "noctalia/kaomoji", "noctalia/timer", "noctalia/notes", "yugaaank/better-clock" ]
+enabled = [
+    "icefish/phone-operate",
+    "noctalia/kaomoji",
+    "noctalia/timer",
+    "noctalia/notes",
+    "yugaaank/better-clock",
+    "aristides/udiskie",
+    "weinguyen/procmon",
+    "decksters-lab/palette-creator",
+    "kenn/keybind-cheatsheet",
+    "nightwatch75/file-search",
+    "yocraft/custom-shortcut",
+    "gustav0ar/drive-health",
+    "jrohland/claudecode",
+    "nomadcxx/gamer-mode",
+    "dotnetrob/cat",
+    "noctalia/bongocat",
+    "jkyon/portage-updates"
+]
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+    [[plugins.source]]
+    kind = "path"
+    location = "/home/jkyon/.dotfiles/config/noctalia/plugins"
+    name = "jkyon-local"
 
 [shell]
 app_icon_color = "primary"
-clipboard_auto_paste = "auto"
-clipboard_enabled = true
-clipboard_history_max_entries = 100
-clipboard_image_action_command = ""
-clipboard_keep_from_closed_apps = true
-corner_radius_scale = 1.0
-date_format = "%A, %x"
-font_family = "sans-serif"
 lang = "en"
 launch_apps_as_systemd_services = true
-niri_overview_type_to_launch_enabled = false
-offline_mode = false
 password_style = "random"
 polkit_agent = true
 screen_time_enabled = true
-settings_show_advanced = true
-shared_gl_context = true
-show_location = true
 telemetry_enabled = true
-time_format = "{:%H:%M}"
-
-    [shell.animation]
-    enabled = true
-    speed = 1.0
 
     [shell.greeter_sync]
     auto_sync = true
 
     [shell.launcher]
     app_grid = true
-    auto_paste = "auto"
-    categories = true
-    compact = false
-    fetch_exchange_rates = true
-    pinned = []
-    provider_prefix = "/"
-    show_app_origin_indicator = true
-    show_icons = true
-    sort_by_usage = true
-
-        [shell.launcher.providers.calculator]
-        global = true
-        prefix = "calc"
-
-        [shell.launcher.providers.emoji]
-        prefix = "emo"
-
-        [shell.launcher.providers.session]
-        global = false
-        prefix = "session"
-
-        [shell.launcher.providers.wallpaper]
-        prefix = "wall"
-
-        [shell.launcher.providers.windows]
-        prefix = "win"
-
-    [shell.mpris]
-    blacklist = []
 
     [shell.panel]
-    borders = true
-    clipboard_placement = "floating"
     clipboard_position = "auto"
-    control_center_placement = "floating"
     control_center_position = "auto"
-    launcher_placement = "floating"
-    launcher_position = "center"
     open_near_click_clipboard = true
     open_near_click_control_center = true
-    open_near_click_launcher = false
     open_near_click_session = true
-    open_near_click_wallpaper = false
-    session_placement = "attached"
-    shadow = true
-    transparency_mode = "solid"
-    wallpaper_placement = "attached"
-
-    [shell.privacy]
-    cam_filter_regex = ""
-    mic_filter_regex = ""
-    screen_filter_regex = ""
 
     [shell.screenshot]
     confirm_region = true
     copy_to_clipboard = true
     pipe_command = "satty --filename -"
-    pipe_to_command = true
     remember_last_region = true
     save_to_file = false
     show_cursor = true
@@ -579,52 +497,20 @@ time_format = "{:%H:%M}"
         shortcut = "1"
         variant = "default"
 
-    [shell.shadow]
-    alpha = 0.55000000000000004
-    direction = "down"
-
 [system.monitor]
-cpu_freq_activity_threshold = 2.5
-cpu_freq_critical_threshold = 4.5
-cpu_poll_seconds = 2.0
 cpu_temp_critical_threshold = 80
-disk_poll_seconds = 10.0
-enabled = true
-gpu_poll_seconds = 5.0
-memory_poll_seconds = 2.0
-network_poll_seconds = 3.0
 
 [theme]
 builtin = "Catppuccin"
 community_palette = "Catppuccin Macchiato Mauve"
 mode = "dark"
-pure_black_dark = false
 source = "community"
 wallpaper_scheme = "dysfunctional"
 
-    [theme.templates]
-    builtin_ids = []
-    community_ids = []
-    enable_builtin_templates = true
-    enable_community_templates = true
-
 [wallpaper]
-directory = ""
-directory_dark = ""
-directory_light = ""
-edge_smoothness = 0.29999999999999999
-enabled = true
-fill_color = ""
 fill_mode = "center"
 transition = [ "honeycomb" ]
-transition_duration = 1500
 transition_on_startup = true
-
-    [wallpaper.automation]
-    enabled = false
-    interval_seconds = 1800
-    order = "random"
-    recursive = true
 
     [wallpaper.default]
     path = "/home/jkyon/Pictures/Wallpapers/LinuxWallpapers/gentoo-logo ascii-catppuccin-macchiato-mauve.png"
@@ -641,17 +527,25 @@ transition_on_startup = true
     [wallpaper.monitors.HDMI-A-2]
     path = "/home/jkyon/Pictures/Wallpapers/LinuxWallpapers/gentoo-logo ascii-catppuccin-macchiato-mauve.png"
 
-[weather]
-effects = true
-enabled = true
-refresh_minutes = 30
-unit = "celsius"
-
 [widget.bar]
 type = "noctalia/timer:bar"
 
+[widget.cat]
+scale = 1.4000000000000001
+type = "dotnetrob/cat:cat"
+
+[widget.cat_2]
+scale = 1.75
+type = "dotnetrob/cat:cat"
+
+[widget.cat_4]
+audio_spectrum = true
+scale = 1.75
+tappy_mode = true
+type = "noctalia/bongocat:cat"
+use_mpris_filter = true
+
 [widget.clock]
-capsule = true
 capsule_padding = 10
 color = "primary"
 font_weight = 700
@@ -659,36 +553,91 @@ format = "{:%A, %d %B - %H:%M}"
 scale = 1.1000000000000001
 vertical_format = "{:%H  %M}"
 
+[widget.cpu]
+glyph = "cpu"
+stat = "cpu_usage"
+
+[widget.gpu-temp]
+show_glyph = false
+stat = "gpu_temp"
+type = "sysmon"
+
+[widget.gpu-vram]
+show_glyph = false
+show_value = false
+stat = "gpu_vram_used"
+type = "sysmon"
+
 [widget.media]
 capsule = true
 
 [widget.network]
-show_label = false
 show_vpn_label = true
 vpn_status = "both"
 
+[widget.pill]
+capsule = true
+capsule_opacity = 0.5
+pill_style = "ring"
+ring_thickness = 4
+type = "jrohland/claudecode:pill"
+
+[widget.portage]
+capsule = true
+color = "primary"
+type = "jkyon/portage-updates:widget"
+
+[widget.ram]
+glyph = "ticket"
+show_value = false
+
 [widget.session]
+anchor = true
 capsule = true
 capsule_padding = 5
 color = "primary"
 scale = 1.1000000000000001
 
 [widget.spacer_media]
-length = 100
+length = 33
 type = "spacer"
 
 [widget.spacer_power]
+interactive = true
 type = "spacer"
 
 [widget.status]
-enabled = false
+enabled = true
 type = "icefish/phone-operate:status"
+
+[widget.status_2]
+hide_when_empty = true
+type = "aristides/udiskie:status"
+
+[widget.summary]
+type = "gustav0ar/drive-health:summary"
+
+[widget.swap]
+show_glyph = false
+show_value = false
+stat = "swap_pct"
+type = "sysmon"
+
+[widget.sysmon]
+glyph = "brand-graphql"
+show_value = false
 
 [widget.volume]
 show_label = false
 
+[widget.weather]
+anchor = true
+
 [widget.workspaces]
-change_color_on_hover = false
+active_pill_size = 2.0
+anchor = true
+change_color_on_hover = true
 empty_color = "outline"
+label_source = "name"
+labels_only_when_occupied = true
 scale = 1.25
-show_labels = false

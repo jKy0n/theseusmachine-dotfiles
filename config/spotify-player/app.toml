@@ -11,8 +11,9 @@ playback_metadata_fields = [
 ]
 app_refresh_duration_in_ms = 32
 border_type = "Rounded"
-cover_img_length = 48
-cover_img_pixels = 16
+client_id = "26c15e35e5e5463e9e6ec39e6ff89dff"
+cover_img_length = 32
+cover_img_pixels = 64
 cover_img_rendering_method = "None"
 cover_img_scale = 2
 cover_img_width = 20

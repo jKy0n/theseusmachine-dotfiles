@@ -1,0 +1,10 @@
+[[plugin]]
+id = "jkyon/portage-updates"
+name = "Portage Updates"
+version = "1.0.0"
+author = "jkyon"
+license = "MIT"
+icon = "download"
+description = "Mostra o número de pacotes disponíveis para atualização no Portage (Gentoo), lendo o cache gerado pelos timers systemd de sincronização."
+plugin_api = 9
+tags = [ "gentoo", "portage", "system" ]

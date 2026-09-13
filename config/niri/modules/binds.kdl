@@ -13,7 +13,8 @@
 
 binds {
     //  -----  Help menu  -----
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    // Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+Slash { spawn "noctalia" "msg" "panel-toggle" "kenn/keybind-cheatsheet:cheatsheet"; }
 
     // -----  Quit  -----
     Mod+Shift+E { quit; }
@@ -45,7 +46,7 @@ binds {
 
     //  -----  Niri  -----
      Mod+Shift+Semicolon { spawn-sh "noctalia msg settings-toggle"; }
-     // Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+     Mod+Shift+Period { spawn-sh "noctalia msg panel-toggle control-center"; }
 
     //  -----  Multimedia Keys -----
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }

@@ -28,4 +28,11 @@ stow -v -d "$DOTFILES" -t "$TARGET_BASE" gtk
 # fora do escopo do stow.
 ln -sfv "$DOTFILES/modprobed-db/modprobed-db.conf" "$TARGET_BASE/modprobed-db.conf"
 
+# Noctalia não lê o config de ~/.config/noctalia/config.toml — esse arquivo é
+# só um dump completo que o próprio app reexporta a cada alteração. O config
+# "de fato" (lido e escrito pelo app) fica em ~/.local/state/noctalia/settings.toml.
+# Companion symlink manual, fora do escopo do stow.
+mkdir -p "$HOME/.local/state/noctalia"
+ln -sfv "$DOTFILES/noctalia/settings.toml" "$HOME/.local/state/noctalia/settings.toml"
+
 echo "==> Concluído"

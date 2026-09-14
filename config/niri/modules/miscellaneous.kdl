@@ -10,7 +10,7 @@
 prefer-no-csd
 
 environment {
-    GTK_THEME "catppuccin-frappe-blue:dark"
+    GTK_THEME "catppuccin-macchiato-mauve:dark"
 }
 
 blur {

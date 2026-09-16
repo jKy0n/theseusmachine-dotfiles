@@ -4,7 +4,7 @@
 //        Path:       /home/jkyon/.config/niri/modules/binds.kdl
 //        Author:     John Kennedy a.k.a. jKyon
 //        Created:    2026-07-31
-//        Updated:    2026-08-03
+//        Updated:    2026-09-16
 //        Notes:
 //                    Baseado no bind set padrão do niri — mantido quase inteiro de propósito,
 //                    pra você ir pegando o vocabulário de ações.
@@ -26,23 +26,13 @@ binds {
     //  -----  Apps do dia-a-dia  -----
     Mod+C hotkey-overlay-title="Open Calculator" { spawn "gnome-calculator"; }
     Mod+E hotkey-overlay-title="Open Dolphin" { spawn "dolphin"; }
-    Mod+V hotkey-overlay-title="Open VS Code" { spawn "code"; }
+    // Mod+V hotkey-overlay-title="Open VS Code" { spawn "code"; }
     Mod+W hotkey-overlay-title="Open Firefox" { spawn "firefox"; }
+    Mod+Z hotkey-overlay-title="Open zed" { spawn "zedit"; }
 
     //  -----  Noctalia Launcher  -----
     Mod+P { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+O hotkey-overlay-title="Emoji picker" { spawn-sh "noctalia msg panel-toggle launcher /emo"; }
-
-    //  -----  Walker - Launcher  -----
-    // Mod+P hotkey-overlay-title="Run an Application: walker" { spawn-sh "nc -U \"$XDG_RUNTIME_DIR/walker/walker.sock\""; }
-    // Mod+O hotkey-overlay-title="Emoji selector" { spawn "walker" "--provider" "symbols"; }
-
-    //  -----  Manipulação de Workspace  -----
-    // Mod+F2 hotkey-overlay-title="Rename current workspace" { spawn-sh "~/ShellScript/niri/rename-workspace.sh"; }
-    // Mod+Shift+F2 hotkey-overlay-title="Unset workspace name" { spawn-sh "niri msg action unset-workspace-name"; }
-
-    //  -----  Manipulação de Janelas -----
-    // Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
 
     //  -----  Niri  -----
      Mod+Shift+Semicolon { spawn-sh "noctalia msg settings-toggle"; }
@@ -68,8 +58,6 @@ binds {
 
     // --- Screenshot ---
     Print hotkey-overlay-title="Take a screenshot and open in Satty" { spawn-sh "grim -t ppm - | satty --filename - --copy-command wl-copy --actions-on-enter=\"save-to-clipboard,exit\" --output-filename \"$HOME/Pictures/Screenshots/$(date +%Y%m%d-%H%M%S).png\""; }
-    // Mod+Shift+Print hotkey-overlay-title="Select area, take a screenshot and copy to clipboard" { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy"; }
-    // Mod+Control+Print hotkey-overlay-title="Select area, take a screenshot and open in Satty" { spawn-sh "grim -t ppm -g \"$(slurp -d)\" - | satty --filename - --copy-command wl-copy --actions-on-enter=\"save-to-clipboard,exit\" --output-filename \"$HOME/Pictures/Screenshots/$(date +%Y%m%d-%H%M%S).png\""; }
     Mod+Shift+Print hotkey-overlay-title="Take a window screenshot" { spawn-sh "noctalia msg screenshot-region"; }
 
     // Intercepta Ctrl + Scroll no Wayland e injeta a troca de abas no Firefox/Apps - Necessita de wtype

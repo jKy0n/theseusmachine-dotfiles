@@ -9,9 +9,9 @@
 --   /var/cache/portage-update-checker/status.json
 --   { "count": N, "updated_at": "<ISO8601>", "packages": [...] }
 --
--- O mesmo arquivo já alimenta o módulo custom/portage-updates do Waybar
--- (config/waybar/config.jsonc + scripts em /etc/jkyon-systemd), então este
--- widget é só um "renderer" alternativo do mesmo dado.
+-- O mesmo arquivo já alimenta um módulo equivalente no Waybar (config em
+-- ~/.config/waybar, fora deste repo), então este widget é só um "renderer"
+-- alternativo do mesmo dado.
 
 local CACHE_PATH = "/var/cache/portage-update-checker/status.json"
 -- Separa count/updated_at/packages por TAB, e cada pacote por uma quebra de

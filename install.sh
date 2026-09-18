@@ -9,7 +9,7 @@ DOTFILES="$HOME/.dotfiles/config"
 TARGET_BASE="$HOME/.config"
 
 # pacotes padrão: destino é sempre $TARGET_BASE/<pkg>
-PACKAGES=(atuin fastfetch mako modprobed-db niri satty spotify-player walker waybar)
+PACKAGES=(atuin fastfetch modprobed-db niri satty spotify-player)
 
 echo "==> Aplicando stow"
 for pkg in "${PACKAGES[@]}"; do

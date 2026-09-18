@@ -293,15 +293,6 @@ window-rule {  // virt-manager - Virtual Machines manager
     open-floating true
 }
 
-// W  ------------------------------------------------------------
-
-layer-rule {  // Waybar - Wayland bar
-    match namespace="^waybar$"
-    background-effect {
-        blur true
-    }
-}
-
 // X  ------------------------------------------------------------
 
 window-rule {  // xconfig - X Configuration Manager for kernel

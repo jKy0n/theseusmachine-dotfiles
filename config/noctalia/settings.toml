@@ -109,13 +109,13 @@ pre_action_fade_seconds = 10
 
     [idle.behavior.idle-behavior]
     action = "suspend"
-    enabled = true
+    enabled = false
     lock_before_suspend = false
     timeout = 7200.0
 
     [idle.behavior.lock]
     action = "lock"
-    enabled = true
+    enabled = false
     timeout = 540.0
 
     [idle.behavior.screen-off]
@@ -430,6 +430,7 @@ enabled = [
 
 [shell]
 app_icon_color = "primary"
+avatar_path = "/home/jkyon/Pictures/ToOrganize/profile_pic.jpeg"
 lang = "en"
 launch_apps_as_systemd_services = true
 password_style = "random"
@@ -504,7 +505,6 @@ cpu_temp_critical_threshold = 80
 builtin = "Catppuccin"
 community_palette = "Catppuccin Macchiato Mauve"
 mode = "dark"
-source = "community"
 wallpaper_scheme = "dysfunctional"
 
 [wallpaper]

@@ -76,14 +76,15 @@ window-rule {  // feh - Image Viewer
     default-window-height { fixed 864; }
 }
 
-// window-rule {  // Bitwarden in Firefox
-//     match title="^Extension: \\\\(Bitwarden Password Manager\\\\) - Bitwarden — jkyon — Mozilla Firefox$"
-//     open-floating true
-//     // open-focused true
-//     default-column-width { fixed 400; }
-//     default-window-height { fixed 600; }
+window-rule {  // Firefox - Bitwarden
+    match app-id=r#"firefox$"# title=r#"^Extension: \(Bitwarden Password Manager\) - Bitwarden — jkyon — Mozilla Firefox$"#
+    open-floating true
+}
 
-// }
+window-rule {  // Firefox - Picture-in-Picture player
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
 
 // G  ------------------------------------------------------------
 

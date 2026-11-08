@@ -5,7 +5,7 @@
 # [location] fica no settings.toml local de propósito (repo público).
 
 [audio]
-sound_volume = 0.669999985024333
+sound_volume = 0.67
 
 [backdrop]
 enabled = true

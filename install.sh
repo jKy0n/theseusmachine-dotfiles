@@ -28,11 +28,13 @@ stow -v -d "$DOTFILES" -t "$TARGET_BASE" gtk
 # fora do escopo do stow.
 ln -sfv "$DOTFILES/modprobed-db/modprobed-db.conf" "$TARGET_BASE/modprobed-db.conf"
 
-# Noctalia não lê o config de ~/.config/noctalia/config.toml — esse arquivo é
-# só um dump completo que o próprio app reexporta a cada alteração. O config
-# "de fato" (lido e escrito pelo app) fica em ~/.local/state/noctalia/settings.toml.
-# Companion symlink manual, fora do escopo do stow.
-mkdir -p "$HOME/.local/state/noctalia"
-ln -sfv "$DOTFILES/noctalia/settings.toml" "$HOME/.local/state/noctalia/settings.toml"
+# Noctalia v5 lê duas camadas, nesta ordem:
+#   1. ~/.config/noctalia/*.toml              → config do usuário (versionado aqui)
+#   2. ~/.local/state/noctalia/settings.toml  → overrides gravados pela GUI (estado local, NÃO versionar)
+# config.toml é mínimo: só o que difere do padrão. Mudou algo pela GUI e quer manter?
+# `noctalia config export merged` e copie o trecho para config/noctalia/config.toml.
+# Symlink só do arquivo (não stow do pacote) pra plugins/ não ir parar em ~/.config/noctalia.
+mkdir -p "$TARGET_BASE/noctalia"
+ln -sfv "$DOTFILES/noctalia/config.toml" "$TARGET_BASE/noctalia/config.toml"
 
 echo "==> Concluído"

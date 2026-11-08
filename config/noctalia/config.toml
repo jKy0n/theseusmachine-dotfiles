@@ -1,0 +1,575 @@
+# Noctalia v5 — TheseusMachine
+# Config mínimo: só o que difere do padrão (gerado por poda via `noctalia config export full`).
+# Camadas: este arquivo (~/.config/noctalia/config.toml) → depois ~/.local/state/noctalia/settings.toml (GUI, local).
+# Mudou algo pela GUI e quer manter? `noctalia config export merged` e traga o trecho pra cá.
+# [location] fica no settings.toml local de propósito (repo público).
+
+[audio]
+sound_volume = 0.669999985024333
+
+[backdrop]
+enabled = true
+
+[bar.main]
+center = ["group:g2", "group:g1", "spacer_media", "group:g4", "spacer_media", "portage"]
+end = ["cat", "group:g3", "pill", "spacer_power", "session"]
+margin_edge = 5
+margin_ends = 10
+padding = 20
+position = "right"
+start = ["workspaces", "spacer_media", "media"]
+thickness = 40
+
+[bar.main.monitor.HDMI-A-1]
+center = ["group:g1", "spacer_media", "clock"]
+end = ["media", "spacer_media", "session"]
+position = "top"
+start = ["workspaces"]
+
+[[bar.main.monitor.HDMI-A-1.capsule_group]]
+id = "g1"
+members = ["cat_4", "cat_2"]
+opacity = 0.0
+padding = 8.0
+
+[[bar.main.capsule_group]]
+id = "g1"
+members = ["tray"]
+
+[[bar.main.capsule_group]]
+id = "g2"
+members = ["status", "bar", "clipboard", "caffeine", "volume", "notifications", "network", "status_2"]
+
+[[bar.main.capsule_group]]
+id = "g3"
+members = ["cpu", "temp", "sysmon", "gpu-vram", "gpu-temp", "ram", "swap", "summary"]
+
+[[bar.main.capsule_group]]
+id = "g4"
+members = ["clock", "weather"]
+
+[brightness]
+enable_ddcutil = true
+minimum_brightness = 0.09999999776482582
+sync_all_monitors = true
+
+[calendar]
+enabled = true
+
+[calendar.account.personal]
+name = "agenda"
+type = "google"
+
+[control_center]
+hidden_tabs = ["power"]
+sidebar = "full"
+sidebar_section = "full"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[dock]
+margin_edge = 8
+
+[idle]
+behavior_order = ["lock", "screen-off", "idle-behavior"]
+pre_action_fade_seconds = 10
+
+[idle.behavior.idle-behavior]
+action = "suspend"
+enabled = false
+lock_before_suspend = false
+timeout = 7200.0
+
+[idle.behavior.lock]
+action = "lock"
+enabled = false
+timeout = 540.0
+
+[idle.behavior.screen-off]
+action = "screen_off"
+timeout = 600.0
+
+[lockscreen]
+blur_intensity = 0.3299999926239252
+blurred_desktop = true
+tint_intensity = 0.24999999441206455
+
+[lockscreen_widgets]
+enabled = true
+widget_order = ["lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-2", "lockscreen-login-box@HDMI-A-1", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002", "lockscreen-widget-0000000000000003", "lockscreen-widget-0000000000000004", "lockscreen-widget-0000000000000005", "lockscreen-widget-0000000000000006", "lockscreen-widget-0000000000000007", "lockscreen-widget-0000000000000008"]
+
+[lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+box_height = 128.0
+box_width = 810.0
+cx = 1720.0
+cy = 1258.0
+output = "DP-1"
+placement_height = 1440.0
+placement_width = 3440.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+background_color = "surface_container"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = false
+show_login_button = false
+show_media = false
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = false
+
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+box_height = 128.0
+box_width = 810.0
+cx = 540.0
+cy = 1664.0
+output = "HDMI-A-1"
+placement_height = 1920.0
+placement_width = 1080.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+background_color = "surface_container"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = false
+show_login_button = false
+show_media = false
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = false
+
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2"]
+box_height = 128.0
+box_width = 810.0
+cx = 960.0
+cy = 898.0
+output = "HDMI-A-2"
+placement_height = 1080.0
+placement_width = 1920.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2".settings]
+background_color = "surface_container"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = false
+show_login_button = false
+show_media = false
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = false
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+type = "clock"
+box_height = 208.0
+box_width = 400.0
+cx = 1720.0
+cy = 176.0
+output = "DP-1"
+placement_height = 1440.0
+placement_width = 3440.0
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+background = true
+background_opacity = 0.67
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+box_height = 704.0
+box_width = 1024.0
+cx = 2808.0
+cy = 496.0
+output = "DP-1"
+placement_height = 1440.0
+placement_width = 3440.0
+type = "calendar"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+background_opacity = 0.67
+show_events = true
+show_week_numbers = false
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+box_height = 448.0
+box_width = 256.0
+cx = 284.0
+cy = 416.0
+output = "HDMI-A-1"
+placement_height = 1920.0
+placement_width = 1080.0
+type = "media_player"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+hide_when_no_media = true
+layout = "vertical"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+box_height = 256.0
+box_width = 384.0
+cx = 320.0
+cy = 348.0
+output = "HDMI-A-2"
+placement_height = 1080.0
+placement_width = 1920.0
+type = "sysmon"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+background_opacity = 0.67
+display = "graph"
+gauge_layout = "horizontal"
+show_label = true
+stat = "cpu_usage"
+stat2 = "cpu_temp"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
+box_height = 256.0
+box_width = 384.0
+cx = 1600.0
+cy = 348.0
+output = "HDMI-A-2"
+placement_height = 1080.0
+placement_width = 1920.0
+type = "noctalia/timer:desktop"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
+box_height = 208.0
+box_width = 400.0
+cx = 796.0
+cy = 352.0
+output = "HDMI-A-1"
+placement_height = 1920.0
+placement_width = 1080.0
+type = "volume"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
+box_height = 640.0
+box_width = 576.0
+cx = 600.0
+cy = 464.0
+output = "DP-1"
+placement_height = 1440.0
+placement_width = 3440.0
+type = "weather"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
+forecast_days = 6
+show_forecast = true
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000008]
+type = "clock"
+box_height = 96.0
+box_width = 816.0
+cx = 1720.0
+cy = 328.0
+output = "DP-1"
+placement_height = 1440.0
+placement_width = 3440.0
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000008.settings]
+background = true
+background_opacity = 0.67
+format = "{:%A, %d %B %Y}"
+
+[nightlight]
+enabled = true
+temperature_night = 4500
+
+[notification]
+position = "top_center"
+
+[osd]
+position = "top_right"
+
+[plugin_settings."aristides/udiskie"]
+manager_open_near_click = true
+
+[plugin_settings."decksters-lab/palette-creator"]
+creator_open_near_click = true
+creator_position = "auto"
+
+[plugin_settings."gustav0ar/drive-health"]
+drives_position = "auto"
+full_smart_refresh_minutes = 60
+system_collector_enabled = true
+
+[plugin_settings."icefish/phone-operate"]
+battery_display = "hidden"
+
+[plugin_settings."jrohland/claudecode"]
+popout_placement = "floating"
+refresh_interval = 5
+
+[plugin_settings."kenn/keybind-cheatsheet"]
+compositor = "niri"
+niri_config = "~/.config/niri/modules/binds.kdl"
+show_undescribed = false
+
+[plugin_settings."nightwatch75/file-search"]
+panel_placement = "floating"
+
+[plugin_settings."noctalia/timer"]
+panel_placement = "floating"
+
+[plugin_settings."nomadcxx/gamer-mode"]
+main_open_near_click = true
+
+[plugin_settings."weinguyen/procmon"]
+panel_position = "auto"
+
+[plugins]
+enabled = ["icefish/phone-operate", "noctalia/kaomoji", "noctalia/timer", "noctalia/notes", "yugaaank/better-clock", "aristides/udiskie", "weinguyen/procmon", "decksters-lab/palette-creator", "kenn/keybind-cheatsheet", "nightwatch75/file-search", "yocraft/custom-shortcut", "gustav0ar/drive-health", "jrohland/claudecode", "nomadcxx/gamer-mode", "dotnetrob/cat", "noctalia/bongocat", "jkyon/portage-updates"]
+
+[[plugins.source]]
+location = "https://github.com/noctalia-dev/official-plugins"
+name = "official"
+
+[[plugins.source]]
+location = "https://github.com/noctalia-dev/community-plugins"
+name = "community"
+
+[[plugins.source]]
+kind = "path"
+location = "/home/jkyon/.dotfiles/config/noctalia/plugins"
+name = "jkyon-local"
+
+[shell]
+app_icon_color = "primary"
+avatar_path = "/home/jkyon/Pictures/ToOrganize/profile_pic.jpeg"
+lang = "en"
+launch_apps_as_systemd_services = true
+password_style = "random"
+polkit_agent = true
+screen_time_enabled = true
+telemetry_enabled = true
+
+[shell.greeter_sync]
+auto_sync = true
+
+[shell.launcher]
+app_grid = true
+
+[shell.launcher.providers.calculator]
+global = true
+prefix = "calc"
+
+[shell.launcher.providers.emoji]
+prefix = "emo"
+
+[shell.launcher.providers.session]
+global = false
+prefix = "session"
+
+[shell.launcher.providers.wallpaper]
+prefix = "wall"
+
+[shell.launcher.providers.windows]
+prefix = "win"
+
+[shell.panel]
+clipboard_position = "auto"
+control_center_placement = "floating"
+open_near_click_clipboard = true
+open_near_click_control_center = true
+open_near_click_session = true
+
+[shell.screenshot]
+confirm_region = true
+pipe_command = "satty --filename -"
+pipe_to_command = true
+remember_last_region = true
+save_to_file = false
+show_cursor = true
+
+[shell.session]
+grid = true
+grid_columns = 5
+
+[[shell.session.actions]]
+action = "shutdown"
+countdown_seconds = 3.0
+shortcut = "5"
+variant = "destructive"
+
+[[shell.session.actions]]
+action = "reboot"
+shortcut = "4"
+
+[[shell.session.actions]]
+action = "logout"
+enabled = false
+shortcut = "2"
+
+[[shell.session.actions]]
+action = "lock_and_suspend"
+enabled = false
+shortcut = "3"
+
+[[shell.session.actions]]
+action = "lock"
+enabled = false
+shortcut = "1"
+
+[system.monitor]
+cpu_temp_critical_threshold = 80
+
+[theme]
+builtin = "Catppuccin"
+community_palette = "Catppuccin Macchiato Mauve"
+source = "community"
+wallpaper_scheme = "dysfunctional"
+
+[wallpaper]
+fill_mode = "center"
+transition = ["honeycomb"]
+transition_on_startup = true
+
+[wallpaper.automation]
+recursive = true
+
+[weather]
+unit = "celsius"
+
+[widget.bar]
+type = "noctalia/timer:bar"
+
+[widget.cat]
+scale = 1.4000000000000001
+type = "dotnetrob/cat:cat"
+
+[widget.cat_2]
+scale = 1.75
+type = "dotnetrob/cat:cat"
+
+[widget.cat_4]
+audio_spectrum = true
+scale = 1.75
+tappy_mode = true
+type = "noctalia/bongocat:cat"
+use_mpris_filter = true
+
+[widget.clock]
+anchor = true
+capsule = true
+capsule_padding = 10
+color = "primary"
+font_weight = 700
+format = "{:%A, %d %B - %H:%M}"
+scale = 1.1
+vertical_format = "{:%H  %M}"
+
+[widget.cpu]
+glyph = "cpu"
+show_value = false
+
+[widget.gpu-temp]
+show_glyph = false
+stat = "gpu_temp"
+type = "sysmon"
+
+[widget.gpu-vram]
+show_glyph = false
+show_value = false
+stat = "gpu_vram_used"
+type = "sysmon"
+
+[widget.media]
+capsule = true
+
+[widget.network]
+show_label = false
+show_vpn_label = true
+vpn_status = "both"
+
+[widget.pill]
+capsule = true
+capsule_opacity = 0.5
+pill_style = "ring"
+ring_thickness = 4
+type = "jrohland/claudecode:pill"
+
+[widget.portage]
+capsule = true
+color = "primary"
+type = "jkyon/portage-updates:widget"
+
+[widget.ram]
+glyph = "ticket"
+show_value = false
+
+[widget.session]
+anchor = true
+capsule = true
+capsule_padding = 5
+color = "primary"
+scale = 1.1
+
+[widget.spacer_media]
+length = 33
+type = "spacer"
+
+[widget.spacer_power]
+interactive = true
+type = "spacer"
+
+[widget.status]
+enabled = true
+type = "icefish/phone-operate:status"
+
+[widget.status_2]
+hide_when_empty = true
+type = "aristides/udiskie:status"
+
+[widget.summary]
+type = "gustav0ar/drive-health:summary"
+
+[widget.swap]
+show_glyph = false
+show_value = false
+stat = "swap_pct"
+type = "sysmon"
+
+[widget.sysmon]
+glyph = "brand-graphql"
+show_value = false
+
+[widget.temp]
+show_glyph = false
+
+[widget.volume]
+show_label = false
+
+[widget.weather]
+anchor = true
+
+[widget.workspaces]
+active_pill_size = 2.0
+anchor = true
+change_color_on_hover = true
+empty_color = "outline_variant"
+label_source = "name"
+labels_only_when_occupied = true
+scale = 1.25
+show_labels = false

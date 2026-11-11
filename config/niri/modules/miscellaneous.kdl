@@ -9,10 +9,6 @@
 //
 prefer-no-csd
 
-environment {
-    GTK_THEME "catppuccin-macchiato-mauve:dark"
-}
-
 blur {
     passes 2
     offset 1.5

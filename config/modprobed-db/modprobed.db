@@ -95,6 +95,7 @@ nvme_keyring
 overlay
 pcspkr
 phy_package
+pl2303
 platform_profile
 polyval_clmulni
 polyval_generic

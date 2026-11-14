@@ -1,0 +1,76 @@
+id = "jkyon/hw-alerts"
+name = "Hardware Alerts"
+version = "1.0.0"
+plugin_api = 12
+author = "jkyon"
+license = "MIT"
+tags = [ "service", "system", "hardware" ]
+icon = "alert-triangle"
+description = "Sem widget: avisa com notificação crítica (fica até ser fechada) quando temperatura de CPU/GPU, RAM, swap ou VRAM passam do limite, lendo o system monitor do próprio Noctalia."
+
+[[setting]]
+key = "cpu_temp"
+type = "int"
+label_key = "settings.cpu_temp.label"
+description_key = "settings.cpu_temp.description"
+default = 88
+min = 40
+max = 110
+
+[[setting]]
+key = "gpu_temp"
+type = "int"
+label_key = "settings.gpu_temp.label"
+description_key = "settings.gpu_temp.description"
+default = 90
+min = 40
+max = 120
+
+[[setting]]
+key = "ram_pct"
+type = "int"
+label_key = "settings.ram_pct.label"
+description_key = "settings.ram_pct.description"
+default = 90
+min = 10
+max = 100
+
+[[setting]]
+key = "swap_pct"
+type = "int"
+label_key = "settings.swap_pct.label"
+description_key = "settings.swap_pct.description"
+default = 50
+min = 1
+max = 100
+
+[[setting]]
+key = "vram_pct"
+type = "int"
+label_key = "settings.vram_pct.label"
+description_key = "settings.vram_pct.description"
+default = 95
+min = 10
+max = 100
+
+[[setting]]
+key = "sustain_samples"
+type = "int"
+label_key = "settings.sustain_samples.label"
+description_key = "settings.sustain_samples.description"
+default = 5
+min = 1
+max = 60
+
+[[setting]]
+key = "hysteresis"
+type = "int"
+label_key = "settings.hysteresis.label"
+description_key = "settings.hysteresis.description"
+default = 5
+min = 1
+max = 30
+
+[[service]]
+id = "alerts"
+entry = "service.luau"

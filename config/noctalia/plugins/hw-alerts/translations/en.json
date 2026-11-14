@@ -1,0 +1,32 @@
+{
+  "settings": {
+    "cpu_temp": {
+      "label": "Limite de temperatura da CPU (°C)",
+      "description": "Avisa quando a CPU passa desse valor (a 5950X tem Tjmax de 90 °C)"
+    },
+    "gpu_temp": {
+      "label": "Limite de temperatura da GPU (°C)",
+      "description": "Avisa quando a GPU passa desse valor"
+    },
+    "ram_pct": {
+      "label": "Limite de RAM (%)",
+      "description": "Avisa quando o uso de RAM passa dessa porcentagem"
+    },
+    "swap_pct": {
+      "label": "Limite de swap (%)",
+      "description": "Avisa quando o uso de swap passa dessa porcentagem"
+    },
+    "vram_pct": {
+      "label": "Limite de VRAM (%)",
+      "description": "Avisa quando o uso de VRAM passa dessa porcentagem"
+    },
+    "sustain_samples": {
+      "label": "Amostras seguidas antes de avisar",
+      "description": "Quantas leituras seguidas acima do limite (uma a cada 2 s) antes do aviso. Pico isolado não conta."
+    },
+    "hysteresis": {
+      "label": "Margem pra rearmar (°C ou %)",
+      "description": "Depois de avisar, só volta a avisar quando o valor cair essa margem abaixo do limite"
+    }
+  }
+}

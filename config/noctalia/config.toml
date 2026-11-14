@@ -12,7 +12,7 @@ enabled = true
 
 [bar.main]
 center = ["group:g2", "group:g1", "spacer_media", "group:g4", "spacer_media", "portage"]
-end = ["cat", "group:g3", "pill", "spacer_power", "session"]
+end = ["cat", "pill", "spacer_power", "session"]
 margin_edge = 5
 margin_ends = 10
 padding = 20
@@ -39,10 +39,6 @@ members = ["tray"]
 [[bar.main.capsule_group]]
 id = "g2"
 members = ["status", "bar", "clipboard", "caffeine", "volume", "notifications", "network", "status_2"]
-
-[[bar.main.capsule_group]]
-id = "g3"
-members = ["cpu", "temp", "sysmon", "gpu-vram", "gpu-temp", "ram", "swap", "summary"]
 
 [[bar.main.capsule_group]]
 id = "g4"
@@ -340,7 +336,7 @@ main_open_near_click = true
 panel_position = "auto"
 
 [plugins]
-enabled = ["icefish/phone-operate", "noctalia/kaomoji", "noctalia/timer", "noctalia/notes", "yugaaank/better-clock", "aristides/udiskie", "weinguyen/procmon", "decksters-lab/palette-creator", "kenn/keybind-cheatsheet", "nightwatch75/file-search", "yocraft/custom-shortcut", "gustav0ar/drive-health", "jrohland/claudecode", "nomadcxx/gamer-mode", "dotnetrob/cat", "noctalia/bongocat", "jkyon/portage-updates"]
+enabled = ["icefish/phone-operate", "noctalia/kaomoji", "noctalia/timer", "noctalia/notes", "yugaaank/better-clock", "aristides/udiskie", "weinguyen/procmon", "decksters-lab/palette-creator", "kenn/keybind-cheatsheet", "nightwatch75/file-search", "yocraft/custom-shortcut", "gustav0ar/drive-health", "jrohland/claudecode", "nomadcxx/gamer-mode", "dotnetrob/cat", "noctalia/bongocat", "jkyon/portage-updates", "jkyon/hw-alerts"]
 
 [[plugins.source]]
 location = "https://github.com/noctalia-dev/official-plugins"
@@ -432,9 +428,6 @@ action = "lock"
 enabled = false
 shortcut = "1"
 
-[system.monitor]
-cpu_temp_critical_threshold = 80
-
 [theme]
 builtin = "Catppuccin"
 community_palette = "Catppuccin Macchiato Mauve"
@@ -480,21 +473,6 @@ format = "{:%A, %d %B - %H:%M}"
 scale = 1.1
 vertical_format = "{:%H  %M}"
 
-[widget.cpu]
-glyph = "cpu"
-show_value = false
-
-[widget.gpu-temp]
-show_glyph = false
-stat = "gpu_temp"
-type = "sysmon"
-
-[widget.gpu-vram]
-show_glyph = false
-show_value = false
-stat = "gpu_vram_used"
-type = "sysmon"
-
 [widget.media]
 capsule = true
 
@@ -514,10 +492,6 @@ type = "jrohland/claudecode:pill"
 capsule = true
 color = "primary"
 type = "jkyon/portage-updates:widget"
-
-[widget.ram]
-glyph = "ticket"
-show_value = false
 
 [widget.session]
 anchor = true
@@ -541,22 +515,6 @@ type = "icefish/phone-operate:status"
 [widget.status_2]
 hide_when_empty = true
 type = "aristides/udiskie:status"
-
-[widget.summary]
-type = "gustav0ar/drive-health:summary"
-
-[widget.swap]
-show_glyph = false
-show_value = false
-stat = "swap_pct"
-type = "sysmon"
-
-[widget.sysmon]
-glyph = "brand-graphql"
-show_value = false
-
-[widget.temp]
-show_glyph = false
 
 [widget.volume]
 show_label = false

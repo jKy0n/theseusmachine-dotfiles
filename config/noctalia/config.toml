@@ -1,30 +1,30 @@
 # Noctalia v5 — TheseusMachine
-# Config mínimo: só o que difere do padrão (gerado por poda via `noctalia config export full`).
-# Camadas: este arquivo (~/.config/noctalia/config.toml) → depois ~/.local/state/noctalia/settings.toml (GUI, local).
-# Mudou algo pela GUI e quer manter? `noctalia config export merged` e traga o trecho pra cá.
-# [location] fica no settings.toml local de propósito (repo público).
+# Config mínimo: só o que difere do padrão (podado via `noctalia config export full`).
+# Camadas: este arquivo (~/.config/noctalia/config.toml) → depois ~/.local/state/noctalia/settings.toml.
+# O settings.toml é só fallback da GUI: mudou algo lá e quer manter? `noctalia config export merged`
+# e traga o trecho pra cá, depois limpe o settings.toml (fica só config_version + [location]).
+# GTK 3/4, Qt, KColorScheme e niri são tematizados por [theme.templates] abaixo.
 
 [audio]
-sound_volume = 0.67
+sound_volume = 0.7
 
 [backdrop]
 enabled = true
 
 [bar.main]
-center = ["group:g2", "group:g1", "spacer_media", "group:g4", "spacer_media", "portage"]
-end = ["cat", "pill", "spacer_power", "session"]
+center = []
+end = ["group:g2", "group:g4", "spacer_power", "session"]
 margin_edge = 5
 margin_ends = 10
 padding = 20
 position = "right"
-start = ["workspaces", "spacer_media", "media"]
+start = ["workspaces"]
 thickness = 40
 
 [bar.main.monitor.HDMI-A-1]
 center = ["group:g1", "spacer_media", "clock"]
 end = ["media", "spacer_media", "session"]
 position = "top"
-start = ["workspaces"]
 
 [[bar.main.monitor.HDMI-A-1.capsule_group]]
 id = "g1"
@@ -33,16 +33,13 @@ opacity = 0.0
 padding = 8.0
 
 [[bar.main.capsule_group]]
-id = "g1"
-members = ["tray"]
-
-[[bar.main.capsule_group]]
+accordion = true
 id = "g2"
-members = ["status", "bar", "clipboard", "caffeine", "volume", "notifications", "network", "status_2"]
+members = ["notifications", "portage", "status", "status_2", "tray"]
 
 [[bar.main.capsule_group]]
 id = "g4"
-members = ["clock", "weather"]
+members = ["weather", "clock"]
 
 [brightness]
 enable_ddcutil = true
@@ -69,6 +66,9 @@ type = "caffeine"
 
 [[control_center.shortcuts]]
 type = "notification"
+
+[desktop_widgets]
+enabled = false
 
 [dock]
 margin_edge = 8
@@ -327,7 +327,9 @@ show_undescribed = false
 panel_placement = "floating"
 
 [plugin_settings."noctalia/timer"]
+alarm = true
 panel_placement = "floating"
+panel_position = "center"
 
 [plugin_settings."nomadcxx/gamer-mode"]
 main_open_near_click = true
@@ -336,7 +338,7 @@ main_open_near_click = true
 panel_position = "auto"
 
 [plugins]
-enabled = ["icefish/phone-operate", "noctalia/kaomoji", "noctalia/timer", "noctalia/notes", "yugaaank/better-clock", "aristides/udiskie", "weinguyen/procmon", "decksters-lab/palette-creator", "kenn/keybind-cheatsheet", "nightwatch75/file-search", "yocraft/custom-shortcut", "gustav0ar/drive-health", "jrohland/claudecode", "nomadcxx/gamer-mode", "dotnetrob/cat", "noctalia/bongocat", "jkyon/portage-updates", "jkyon/hw-alerts"]
+enabled = ["icefish/phone-operate", "noctalia/kaomoji", "noctalia/timer", "yugaaank/better-clock", "aristides/udiskie", "weinguyen/procmon", "decksters-lab/palette-creator", "kenn/keybind-cheatsheet", "nightwatch75/file-search", "yocraft/custom-shortcut", "gustav0ar/drive-health", "jrohland/claudecode", "nomadcxx/gamer-mode", "dotnetrob/cat", "noctalia/bongocat", "jkyon/portage-updates", "jkyon/hw-alerts"]
 
 [[plugins.source]]
 location = "https://github.com/noctalia-dev/official-plugins"
@@ -385,16 +387,16 @@ prefix = "wall"
 prefix = "win"
 
 [shell.panel]
-clipboard_position = "auto"
 control_center_placement = "floating"
 open_near_click_clipboard = true
 open_near_click_control_center = true
 open_near_click_session = true
 
 [shell.screenshot]
+annotate = true
 confirm_region = true
+copy_on_close = true
 pipe_command = "satty --filename -"
-pipe_to_command = true
 remember_last_region = true
 save_to_file = false
 show_cursor = true
@@ -415,7 +417,6 @@ shortcut = "4"
 
 [[shell.session.actions]]
 action = "logout"
-enabled = false
 shortcut = "2"
 
 [[shell.session.actions]]
@@ -430,9 +431,13 @@ shortcut = "1"
 
 [theme]
 builtin = "Catppuccin"
-community_palette = "Catppuccin Macchiato Mauve"
+community_palette = "Catppuccin Macchiato Lavender"
 source = "community"
 wallpaper_scheme = "dysfunctional"
+
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4", "kcolorscheme", "niri", "qt"]
+community_ids = ["spicetify-noctalia", "discord", "telegram", "gimp", "libreoffice", "zed", "steam", "obs", "thunderbird", "bat", "konsole"]
 
 [wallpaper]
 fill_mode = "center"
@@ -442,17 +447,15 @@ transition_on_startup = true
 [wallpaper.automation]
 recursive = true
 
+[wallpaper.default]
+path = "/home/jkyon/Pictures/Wallpapers/LinuxWallpapers/gentoo-logo ascii-catppuccin-frappe-lavander.png"
+
 [weather]
 unit = "celsius"
 
-[widget.bar]
-type = "noctalia/timer:bar"
-
-[widget.cat]
-scale = 1.4000000000000001
-type = "dotnetrob/cat:cat"
-
 [widget.cat_2]
+cat_color = "primary"
+cat_color_mode = "custom"
 scale = 1.75
 type = "dotnetrob/cat:cat"
 
@@ -475,18 +478,6 @@ vertical_format = "{:%H  %M}"
 
 [widget.media]
 capsule = true
-
-[widget.network]
-show_label = false
-show_vpn_label = true
-vpn_status = "both"
-
-[widget.pill]
-capsule = true
-capsule_opacity = 0.5
-pill_style = "ring"
-ring_thickness = 4
-type = "jrohland/claudecode:pill"
 
 [widget.portage]
 capsule = true
@@ -516,9 +507,6 @@ type = "icefish/phone-operate:status"
 hide_when_empty = true
 type = "aristides/udiskie:status"
 
-[widget.volume]
-show_label = false
-
 [widget.weather]
 anchor = true
 
@@ -526,8 +514,9 @@ anchor = true
 active_pill_size = 2.0
 anchor = true
 change_color_on_hover = true
-empty_color = "outline_variant"
+empty_color = "hover"
 label_source = "name"
 labels_only_when_occupied = true
+occupied_color = "primary_container"
 scale = 1.25
 show_labels = false

@@ -9,7 +9,7 @@ DOTFILES="$HOME/.dotfiles/config"
 TARGET_BASE="$HOME/.config"
 
 # pacotes padrão: destino é sempre $TARGET_BASE/<pkg>
-PACKAGES=(atuin fastfetch modprobed-db niri satty spotify-player xdg-desktop-portal)
+PACKAGES=(atuin fastfetch modprobed-db niri satty xdg-desktop-portal)
 
 echo "==> Aplicando stow"
 for pkg in "${PACKAGES[@]}"; do
@@ -18,10 +18,9 @@ for pkg in "${PACKAGES[@]}"; do
   stow -v -d "$DOTFILES" -t "$TARGET_BASE/$pkg" "$pkg"
 done
 
-# gtk é exceção documentada: o pacote já contém gtk-3.0/ e gtk-4.0/
-# internamente, então o destino é a raiz do ~/.config, não uma subpasta.
-echo "  -> gtk (destino: ~/.config)"
-stow -v -d "$DOTFILES" -t "$TARGET_BASE" gtk
+# GTK 3/4 e Qt ficam fora do repo: as cores vêm dos templates do Noctalia
+# (gtk.css/noctalia.css, qt5ct/qt6ct colors) e o settings.ini é só a base
+# adw-gtk3-dark, mantida direto em ~/.config.
 
 # modprobed-db não lê ~/.config/modprobed-db/modprobed-db.conf (aninhado) —
 # só o caminho plano ~/.config/modprobed-db.conf. Companion symlink manual,

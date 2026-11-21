@@ -19,16 +19,18 @@ binds {
     // -----  Quit  -----
     Mod+Shift+E { quit; }
 
+    // -----  Terminal  -----
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Control+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "NO_MUX=1 kitty"; }
     Mod+Shift+Return hotkey-overlay-title="Open a floating terminal (no mux)" { spawn "env" "NO_MUX=1" "kitty" "--class" "FloatingTerminal"; }
 
     //  -----  Apps do dia-a-dia  -----
     Mod+C hotkey-overlay-title="Open Calculator" { spawn "gnome-calculator"; }
+    Mod+I hotkey-overlay-title="OPen Clipboard" { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+E hotkey-overlay-title="Open Dolphin" { spawn "dolphin"; }
-    // Mod+V hotkey-overlay-title="Open VS Code" { spawn "code"; }
     Mod+W hotkey-overlay-title="Open Firefox" { spawn "firefox"; }
-    Mod+Z hotkey-overlay-title="Open zed" { spawn "zedit"; }
+    Mod+T hotkey-overlay-title="Open Timer" { spawn-sh "noctalia msg panel-toggle noctalia/timer:panel"; }
+    Mod+Z hotkey-overlay-title="Open Zed" { spawn "zedit"; }
 
     //  -----  Noctalia Launcher  -----
     Mod+P { spawn-sh "noctalia msg panel-toggle launcher"; }
@@ -45,20 +47,13 @@ binds {
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     //  -----  Específico para o Spotify oficial  -----
-    // XF86AudioPlay allow-when-locked=true { spawn-sh "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"; }
-    // XF86AudioStop allow-when-locked=true { spawn-sh "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause"; }
-    // XF86AudioPrev allow-when-locked=true { spawn-sh "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"; }
-    // XF86AudioNext allow-when-locked=true { spawn-sh "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"; }
-
-    //  -----  Específico para o spotify_player  -----
-    XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl --player=spotify_player,spotify play-pause"; }
-    XF86AudioStop allow-when-locked=true { spawn-sh "playerctl --player=spotify_player,spotify pause"; }
-    XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl --player=spotify_player,spotify previous"; }
-    XF86AudioNext allow-when-locked=true { spawn-sh "playerctl --player=spotify_player,spotify next"; }
+    XF86AudioPlay allow-when-locked=true { spawn-sh "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"; }
+    XF86AudioStop allow-when-locked=true { spawn-sh "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"; }
 
     // --- Screenshot ---
-    Print hotkey-overlay-title="Take a screenshot and open in Satty" { spawn-sh "grim -t ppm - | satty --filename - --copy-command wl-copy --actions-on-enter=\"save-to-clipboard,exit\" --output-filename \"$HOME/Pictures/Screenshots/$(date +%Y%m%d-%H%M%S).png\""; }
-    Mod+Shift+Print hotkey-overlay-title="Take a window screenshot" { spawn-sh "noctalia msg screenshot-region"; }
+    Print hotkey-overlay-title="Take a window screenshot" { spawn-sh "noctalia msg screenshot-region"; }
 
     // Intercepta Ctrl + Scroll no Wayland e injeta a troca de abas no Firefox/Apps - Necessita de wtype
     Ctrl+WheelScrollDown { spawn "wtype" "-M" "ctrl" "-k" "Page_Down"; }
